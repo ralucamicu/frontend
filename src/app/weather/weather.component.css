@@ -1,0 +1,47 @@
+.day {
+
+    display: flex;
+    flex-direction: column;
+    font-family: 'Times New Roman';
+}
+
+.col-md-5 h2 {
+    text-align: center;
+    color: rgb(30, 81, 107);
+}
+
+.content {
+    max-width: 500px;
+    margin: auto;
+}
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+}
+  
+.example-full-width {
+    width: 100%;
+}
+
+table {
+    width: 100%;
+}
+
+.example-card {
+    max-width: 400px;
+}
+
+.example-header-image {
+    background-image: url('https://spng.subpng.com/20180418/eqw/kisspng-cities-skylines-computer-icons-building-city-skycraper-5ad715cfe0e7d1.0353789215240452639212.jpg');
+    background-size: cover;
+}
+
+.example-icon {
+    padding: 0 14px;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}

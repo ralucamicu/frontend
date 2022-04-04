@@ -1,0 +1,168 @@
+<p>
+  <mat-toolbar color="primary">
+    <button mat-icon-button [matMenuTriggerFor]="menu" class="example-icon"
+      aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <mat-icon>dialpad</mat-icon>
+        <span>Option nr1</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>voicemail</mat-icon>
+        <span>Option nr2</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>notifications_off</mat-icon>
+        <span>Option nr3</span>
+      </button>
+    </mat-menu>
+    <span>Weather API</span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <mat-icon>favorite</mat-icon>
+    </button>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+      <mat-icon>share</mat-icon>
+    </button>
+  </mat-toolbar>
+</p>
+
+<div class="col-md-12">
+  <div class="content">
+    <div class="text-center">
+      <form [formGroup]="weatherSearchForm" novalidate>
+        <h3>Local Weather</h3>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Enter a city</mat-label>
+          <input matInput class="form-control" type="text" id="weatherLocation" aria-describedby="weatherLocation"
+            placeholder="Please input a Location" formControlName="location" required />
+        </mat-form-field>
+
+        <p *ngIf="!forecast">{{errMsg}}</p>
+        <div class="example-button-row">
+          <button mat-raised-button color="primary" (click)="sendToApi(weatherSearchForm.value)">
+            Show forecast
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="forecast">
+  <div class="container">
+    <h3 class="text-left">Weather Details</h3>
+    <table mat-table class="mat-elevation-z8" class="table table-hover table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th></th>
+          <th></th>
+          <th scope="col">Day 1</th>
+          <th scope="col">Day 2</th>
+          <th scope="col">Day 3</th>
+          <th scope="col">Day 4</th>
+          <th scope="col">Day 5</th>
+          <th scope="col">Day 6</th>
+          <th scope="col">Day 7</th>
+          <th scope="col">Day 8</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr scope="row">
+          <th>Temperature °C</th>
+          <td>
+            <div class="day">
+              <span>Morning</span>
+              <span>Day</span>
+              <span>Evening</span>
+              <span>Night</span>
+            </div>
+          </td>
+          <td *ngFor="let weatherForecast of forecast?.daily">
+            <div class="day">
+              <span>{{formatTemperature(weatherForecast?.temp.morn)}}°C</span>
+              <span>{{formatTemperature(weatherForecast?.temp.day)}}°C</span>
+              <span>{{formatTemperature(weatherForecast?.temp.eve)}}°C</span>
+              <span>{{formatTemperature(weatherForecast?.temp.night)}}°C</span>
+            </div>
+          </td>
+        </tr>
+        <tr scope="row">
+          <th>Feels Like Temperature °C</th>
+          <td>
+            <div class="day">
+              <span>Morning</span>
+              <span>Day</span>
+              <span>Evening</span>
+              <span>Night</span>
+            </div>
+          </td>
+          <td *ngFor="let weatherForecast of forecast?.daily">
+            <div class="day">
+              <span>{{formatTemperature(weatherForecast?.feels_like.morn)}}°C</span>
+              <span>{{formatTemperature(weatherForecast?.feels_like.day)}}°C</span>
+              <span>{{formatTemperature(weatherForecast?.feels_like.eve)}}°C</span>
+              <span>{{formatTemperature(weatherForecast?.feels_like.night)}}°C</span>
+            </div>
+          </td>
+        </tr>
+        <tr scope="row">
+          <th>Maximum Temperature °C</th>
+          <td>
+            <div class="day">
+              <span>MAX Temp</span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </td>
+          <td *ngFor="let weatherForecast of forecast?.daily">
+            <div class="day">
+              <span>{{formatTemperature(weatherForecast?.temp.max)}}°C</span>
+            </div>
+          </td>
+        </tr>
+        <tr scope="row">
+          <th>Minimum Temperature °C</th>
+          <td>
+            <div class="day">
+              <span>MIN Temp</span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </td>
+          <td *ngFor="let weatherForecast of forecast?.daily">
+            <div class="day">
+              <span>{{formatTemperature(weatherForecast?.temp.min)}}°C</span>
+            </div>
+          </td>
+        </tr>
+        <tr scope="row">
+          <th>UV Index</th>
+          <td>
+            <div class="day">
+              <span>UVI</span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </td>
+          <td *ngFor="let weatherForecast of forecast?.daily">
+            <div class="day">
+              <span>{{formatTemperature(weatherForecast?.uvi)}}</span>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <button mat-raised-button color="primary" (click)="openDialog()">More info</button>
+  </div>
+</div>
+
+
