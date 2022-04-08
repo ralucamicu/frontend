@@ -21,8 +21,8 @@ export class WeatherApiService {
     ).toPromise();
   }
 
-  getInfo(loc: any): Promise<any>{
-    return this.http.get(this.geoCoordsURL + loc).toPromise();
+  getCity() {
+    return this.http.get('http://127.0.0.1:8000/city').toPromise();
   }
 
   constructor(private http: HttpClient) { 

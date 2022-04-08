@@ -61,6 +61,8 @@ export class WeatherComponent implements OnInit {
 
     });
 
+    this.displayCity();
+
   }
 
   sendToApi(formValues: any) {
@@ -86,14 +88,6 @@ export class WeatherComponent implements OnInit {
       });
   }
 
-  // getWeatherForecast() {
-  //   debugger
-  //   this.apiService.getForecast(latitude,longitude).then(data =>{
-  //     this.forecast = data;
-  //     console.log('forecast',this.forecast);
-  //   });
-  // }
-
   formatTemperature(t: number) {
     return Math.round(t);
   }
@@ -109,6 +103,13 @@ export class WeatherComponent implements OnInit {
       data: {
        item: info
       }
+    });
+  }
+
+  displayCity() {
+    this.apiService.getCity()
+    .then(data => {
+      this.weatherData = data;
     });
   }
 
