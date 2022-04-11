@@ -3,11 +3,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
 // import { NgForm } from '@angular/forms';
 // import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import { MatDialog, MAT_DIALOG_DATA,MatDialogConfig} from '@angular/material/dialog';
+import { MatDialog, MAT_DIALOG_DATA, MatDialogConfig } from '@angular/material/dialog';
 import { MatDialogRef } from '@angular/material/dialog';
 
 import { WeatherApiService } from '../services/weather-api.service';
 import { WeatherDialogComponent } from './dialog/weather-dialog/weather-dialog.component';
+
 
 export class Forecast {
   constructor(
@@ -61,21 +62,36 @@ export class WeatherComponent implements OnInit {
 
     });
 
-    this.displayCity();
-
   }
 
   sendToApi(formValues: any) {
     this.forecast = null;
-    this.apiService.getGeoLoc(formValues.location)
+    // this.apiService.getGeoLoc(formValues.location)
+    //   .then(data => {
+    //     this.weatherData = data;
+    //     const latitude = this.weatherData[0].lat;
+    //     const longitude = this.weatherData[0].lon;
+    //     if (Number(formValues.location)) {
+
+    //     }
+    //     return this.apiService.getForecast(latitude, longitude);
+    //   })
+    //   .then(data => {
+    //     this.forecast = data;
+    //     console.log('forecast', this.forecast);
+    //   })
+    //   .catch(e => {
+    //     this.errMsg = "Enter a valid city";
+    //     e = this.errMsg;
+    //     return e;
+    //   });
+
+    this.apiService.getCity(formValues.location)
       .then(data => {
         this.weatherData = data;
         const latitude = this.weatherData[0].lat;
         const longitude = this.weatherData[0].lon;
-        if (Number(formValues.location)) {
-          
-        }
-        return this.apiService.getForecast(latitude, longitude);
+        return this.apiService.getDummyForecast(latitude, longitude);
       })
       .then(data => {
         this.forecast = data;
@@ -101,15 +117,8 @@ export class WeatherComponent implements OnInit {
 
     this.dialog.open(WeatherDialogComponent, {
       data: {
-       item: info
+        item: info
       }
-    });
-  }
-
-  displayCity() {
-    this.apiService.getCity()
-    .then(data => {
-      this.weatherData = data;
     });
   }
 
