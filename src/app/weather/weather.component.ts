@@ -1,33 +1,12 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
-// import { NgForm } from '@angular/forms';
-// import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogConfig } from '@angular/material/dialog';
 import { MatDialogRef } from '@angular/material/dialog';
 
 import { WeatherApiService } from '../services/weather-api.service';
 import { WeatherDialogComponent } from './dialog/weather-dialog/weather-dialog.component';
-
-
-export class Forecast {
-  constructor(
-    public feelsLikeDay: string,
-    public feelsLikeNight: string,
-    public sunrise: string,
-    public sunset: string,
-    public tempMorning: number,
-    public tempDay: string,
-    public tempEve: string,
-    public tempNight: string,
-    public tempMax: string,
-    public tempMin: string,
-    public uvi: string,
-    public lat: string,
-    public lon: string,
-    public timezone: string
-  ) { }
-}
+import { Forecast } from '../models/forecast';
 
 @Component({
   selector: 'app-weather',
@@ -36,12 +15,12 @@ export class Forecast {
 })
 export class WeatherComponent implements OnInit {
   public weatherSearchForm!: FormGroup; //evrytime i do something on the html form it will do it via weatherSearchForm
-  public weatherData: any;              //holds returned weather data, and then displays it using interpolation in HTML.
-  public forecast: any;
+  public weatherData;              //holds returned weather data, and then displays it using interpolation in HTML.
+  public forecast;
   public weatherForecast!: Forecast[];
   public errMsg = "";
-  public info: any;
-  public data: any;
+  public info;
+  public data;
 
   constructor(
     private formBuilder: FormBuilder,   //creates an instance of form Builder
@@ -64,38 +43,20 @@ export class WeatherComponent implements OnInit {
 
   }
 
-  sendToApi(formValues: any) {
+  sendToApi(formValues) {
     this.forecast = null;
-    // this.apiService.getGeoLoc(formValues.location)
-    //   .then(data => {
-    //     this.weatherData = data;
-    //     const latitude = this.weatherData[0].lat;
-    //     const longitude = this.weatherData[0].lon;
-    //     if (Number(formValues.location)) {
-
-    //     }
-    //     return this.apiService.getForecast(latitude, longitude);
-    //   })
-    //   .then(data => {
-    //     this.forecast = data;
-    //     console.log('forecast', this.forecast);
-    //   })
-    //   .catch(e => {
-    //     this.errMsg = "Enter a valid city";
-    //     e = this.errMsg;
-    //     return e;
-    //   });
-
     this.apiService.getCity(formValues.location)
       .then(data => {
         this.weatherData = data;
+        this.forecast = this.weatherData;
         const latitude = this.weatherData[0].lat;
         const longitude = this.weatherData[0].lon;
-        return this.apiService.getDummyForecast(latitude, longitude);
-      })
-      .then(data => {
-        this.forecast = data;
-        console.log('forecast', this.forecast);
+        this.apiService.getForecast(latitude, longitude)
+          .then(data => {
+            this.forecast = data;
+            console.log('forecast', this.forecast);
+            if (Number(formValues.location)) {}
+          })
       })
       .catch(e => {
         this.errMsg = "Enter a valid city";
@@ -103,6 +64,8 @@ export class WeatherComponent implements OnInit {
         return e;
       });
   }
+
+
 
   formatTemperature(t: number) {
     return Math.round(t);
@@ -113,6 +76,13 @@ export class WeatherComponent implements OnInit {
       lat: this.forecast?.lat,
       lon: this.forecast?.lon,
       timezone: this.forecast?.timezone,
+      tz_offset: this.forecast?.timezone_offset,
+      country: this.weatherData[0]?.country,
+      local_name_hu: this.weatherData[0]?.local_names.hu,
+      local_name_ru: this.weatherData[0]?.local_names.ru,
+      local_name_de: this.weatherData[0]?.local_names.de,
+      local_name_fr: this.weatherData[0]?.local_names.fr,
+      name: this.weatherData[0]?.name
     };
 
     this.dialog.open(WeatherDialogComponent, {

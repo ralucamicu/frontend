@@ -18,13 +18,15 @@ import { AppComponent } from './app.component';
 import { WeatherComponent } from './weather/weather.component';
 import { WeatherApiService } from './services/weather-api.service';
 import { WeatherDialogComponent } from './weather/dialog/weather-dialog/weather-dialog.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WeatherComponent,
     WeatherDialogComponent,
-    WeatherDialogComponent
+    WeatherDialogComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

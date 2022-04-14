@@ -25,14 +25,13 @@ export class WeatherApiService {
 
 
   //-----implementate din php-----
-  getCity(city: String): Promise<any> {
-    return this.http.get('//localhost:8000/backend/sendReq.php'+ city + '').toPromise();
+  getCity(city): Promise<any> {
+    return this.http.get<any>('http://127.0.0.1:8000/city/' + city + "").toPromise();
   }
 
-  getDummyForecast(lat: number, lon: number): Promise<any>{
-    return this.http.get('http://127.0.0.1:8000/forecast/' + lat + '/' + lon).toPromise();
+  getForecast(lat, lon): Promise<any>{
+    return this.http.get('http://127.0.0.1:8000/forecast/' + lat + "/" + lon).toPromise();
   }
-
   constructor(private http: HttpClient) { 
   }
 
