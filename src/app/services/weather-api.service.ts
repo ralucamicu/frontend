@@ -26,7 +26,7 @@ export class WeatherApiService {
 
   //-----implementate din php-----
   getCity(city): Promise<any> {
-    return this.http.get<any>('http://127.0.0.1:8000/city/' + city + "").toPromise();
+    return this.http.get<any>('http://127.0.0.1:8000/city/' + city).toPromise();
   }
 
   getForecast(lat, lon): Promise<any>{
