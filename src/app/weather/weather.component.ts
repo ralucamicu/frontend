@@ -49,9 +49,10 @@ export class WeatherComponent implements OnInit {
       .then(data => {
         this.weatherData = data;
         this.forecast = this.weatherData;
+        const city = this.weatherData[0].name;
         const latitude = this.weatherData[0].lat;
         const longitude = this.weatherData[0].lon;
-        this.apiService.getForecast(latitude, longitude)
+        this.apiService.getForecast(city)
           .then(data => {
             this.forecast = data;
             console.log('forecast', this.forecast);
