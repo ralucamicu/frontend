@@ -45,19 +45,20 @@ export class WeatherComponent implements OnInit {
 
   sendToApi(formValues) {
     this.forecast = null;
-    this.apiService.getCity(formValues.location)
+    this.apiService.getForecast(formValues.location)
       .then(data => {
         this.weatherData = data;
-        this.forecast = this.weatherData;
-        const city = this.weatherData[0].name;
-        const latitude = this.weatherData[0].lat;
-        const longitude = this.weatherData[0].lon;
-        this.apiService.getForecast(city,latitude,longitude)
-          .then(data => {
-            this.forecast = data;
-            console.log('forecast', this.forecast);
-            if (Number(formValues.location)) {}
-          })
+        console.log('data', data[0]);
+        // this.forecast = this.weatherData;
+        // const city = this.weatherData[0].name;
+        // const latitude = this.weatherData[0].lat;
+        // const longitude = this.weatherData[0].lon;
+        // this.apiService.getForecast(city,latitude,longitude)
+        //   .then(data => {
+        //     this.forecast = data;
+        //     console.log('forecast', this.forecast);
+        //     if (Number(formValues.location)) {}
+        //   })
       })
       .catch(e => {
         this.errMsg = "Enter a valid city";

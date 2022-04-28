@@ -2,6 +2,7 @@
 //allows to move all of those HTTP requests the app makes into one file that can then be called inside any .component.ts file 
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';  //make HTTP requests  
+import { timeout } from 'rxjs/operators';
 
 
 @Injectable({
@@ -14,8 +15,8 @@ export class WeatherApiService {
     return this.http.get<any>('http://127.0.0.1:8000/city/' + city).toPromise();
   }
 
-  getForecast(city, lat, lon): Promise<any>{
-    return this.http.get('http://127.0.0.1:8000/forecast/' + city + '/' + lat + '/' + lon).toPromise();
+  getForecast(city): Promise<any>{
+    return this.http.get('http://127.0.0.1:8000/forecast/' + city ).toPromise();
   }
   constructor(private http: HttpClient) { 
   }
