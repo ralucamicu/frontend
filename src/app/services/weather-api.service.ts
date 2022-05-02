@@ -11,12 +11,12 @@ import { timeout } from 'rxjs/operators';
 
 export class WeatherApiService {
   //-----implementate din php-----
-  getCity(city): Promise<any> {
-    return this.http.get<any>('http://127.0.0.1:8000/city/' + city).toPromise();
-  }
+  // getCity(city): Promise<any> {
+  //   return this.http.get<any>('http://127.0.0.1:8000/city/' + city).toPromise();
+  // }
 
   getForecast(city): Promise<any>{
-    return this.http.get('http://127.0.0.1:8000/forecast/' + city ).toPromise();
+    return this.http.get('http://127.0.0.1:8000/forecast/' + city).toPromise();
   }
   constructor(private http: HttpClient) { 
   }

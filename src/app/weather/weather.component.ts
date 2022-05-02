@@ -48,7 +48,8 @@ export class WeatherComponent implements OnInit {
     this.apiService.getForecast(formValues.location)
       .then(data => {
         this.weatherData = data;
-        console.log('data', data[0]);
+        console.log('city', data.city[0]);
+        console.log('forecast', data.forecast);
         // this.forecast = this.weatherData;
         // const city = this.weatherData[0].name;
         // const latitude = this.weatherData[0].lat;
