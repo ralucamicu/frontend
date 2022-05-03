@@ -50,16 +50,7 @@ export class WeatherComponent implements OnInit {
         this.weatherData = data;
         console.log('city', data.city[0]);
         console.log('forecast', data.forecast);
-        // this.forecast = this.weatherData;
-        // const city = this.weatherData[0].name;
-        // const latitude = this.weatherData[0].lat;
-        // const longitude = this.weatherData[0].lon;
-        // this.apiService.getForecast(city,latitude,longitude)
-        //   .then(data => {
-        //     this.forecast = data;
-        //     console.log('forecast', this.forecast);
-        //     if (Number(formValues.location)) {}
-        //   })
+        console.log('a', this.weatherData.city[0].local_name_fr);
       })
       .catch(e => {
         this.errMsg = "Enter a valid city";
@@ -76,15 +67,15 @@ export class WeatherComponent implements OnInit {
 
   openDialog() {
     let info = {
-      lat: this.forecast?.lat,
-      lon: this.forecast?.lon,
-      timezone: this.forecast?.timezone,
-      tz_offset: this.forecast?.timezone_offset,
-      country: this.weatherData[0]?.country,
-      local_name_hu: this.weatherData[0]?.local_names.hu,
-      local_name_ru: this.weatherData[0]?.local_names.ru,
-      local_name_de: this.weatherData[0]?.local_names.de,
-      local_name_fr: this.weatherData[0]?.local_names.fr,
+      lat: this.data.forecast?.lat,
+      lon: this.data.forecast?.lon,
+      timezone: this.data.forecast?.timezone,
+      tz_offset: this.data.forecast?.timezone_offset,
+      country: this.data.city[0]?.country,
+      local_name_hu: this.data.city[0]?.local_names.hu,
+      local_name_ru: this.data.city[0]?.local_names.ru,
+      local_name_de: this.data.city[0]?.local_names.de,
+      local_name_fr: this.data.city[0]?.local_names.fr,
       name: this.weatherData[0]?.name
     };
 
