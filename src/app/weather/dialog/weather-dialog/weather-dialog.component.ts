@@ -12,16 +12,16 @@ import { InfoWeather } from 'src/app/models/info';
 export class WeatherDialogComponent implements OnInit {
 
   public item: InfoWeather;
-  public weatherData; 
+  public weatherData;
   public forecast;
   constructor(
     public dialogRef: MatDialogRef<WeatherDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data) {}
+    @Inject(MAT_DIALOG_DATA) public data) { }
 
 
   ngOnInit(): void {
-    if(this.data){
-    this.item = this.data.item ? this.data.item : null;
+    if (this.weatherData) {
+      this.item = this.item ? this.item : null;
     }
   }
 

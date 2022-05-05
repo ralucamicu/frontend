@@ -1,8 +1,6 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatTableDataSource } from '@angular/material/table';
-import { MatDialog, MAT_DIALOG_DATA, MatDialogConfig } from '@angular/material/dialog';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 
 import { WeatherApiService } from '../services/weather-api.service';
 import { WeatherDialogComponent } from './dialog/weather-dialog/weather-dialog.component';
@@ -50,7 +48,7 @@ export class WeatherComponent implements OnInit {
         this.weatherData = data;
         console.log('city', data.city[0]);
         console.log('forecast', data.forecast);
-        console.log('a', this.weatherData.city[0].local_name_fr);
+        // console.log('a', data.forecast['daily'][0]['temp']['morn']);
       })
       .catch(e => {
         this.errMsg = "Enter a valid city";
@@ -67,16 +65,16 @@ export class WeatherComponent implements OnInit {
 
   openDialog() {
     let info = {
-      lat: this.data.forecast?.lat,
-      lon: this.data.forecast?.lon,
-      timezone: this.data.forecast?.timezone,
-      tz_offset: this.data.forecast?.timezone_offset,
-      country: this.data.city[0]?.country,
-      local_name_hu: this.data.city[0]?.local_names.hu,
-      local_name_ru: this.data.city[0]?.local_names.ru,
-      local_name_de: this.data.city[0]?.local_names.de,
-      local_name_fr: this.data.city[0]?.local_names.fr,
-      name: this.weatherData[0]?.name
+      lat: this.weatherData?.forecast?.lat,
+      lon: this.weatherData?.forecast?.lon,
+      timezone: this.weatherData?.forecast?.timezone,
+      tz_offset: this.weatherData?.forecast?.timezone_offset,
+      country: this.weatherData?.city[0]?.country,
+      local_name_hu: this.weatherData?.city[0]?.local_names.hu,
+      local_name_ru: this.weatherData?.city[0]?.local_names.ru,
+      local_name_de: this.weatherData?.city[0]?.local_names.de,
+      local_name_fr: this.weatherData?.city[0]?.local_names.fr,
+      name: this.weatherData?.name
     };
 
     this.dialog.open(WeatherDialogComponent, {

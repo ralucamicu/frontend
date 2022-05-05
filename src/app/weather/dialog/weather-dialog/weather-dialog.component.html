@@ -2,43 +2,43 @@
 <div mat-dialog-content>
   Here are some interesting facts:
   <ul>
-    <li *ngIf="item.lat">
-      <span></span> 
-        It's Latitude is: {{item.lat}} 
+    <li *ngIf="data?.item?.lat">
+      <span></span>
+      It's Latitude is: {{data?.item?.lat}}
     </li>
-    <li *ngIf="item.lon">
-      <span></span> 
-      <span>It's Longitude is: {{item.lon}}</span>
+    <li *ngIf="data?.item?.lon">
+      <span></span>
+      <span>It's Longitude is: {{data?.item?.lon}}</span>
     </li>
-    <li *ngIf="item.timezone">
-      <span></span> 
-      The city is in the {{item.timezone}} Timezone
+    <li *ngIf="data?.item?.timezone">
+      <span></span>
+      The city is in the {{data?.item?.timezone}} Timezone
     </li>
-    <li *ngIf="item.tz_offset">
-      <span></span> 
-      The timezone offset it {{item.tz_offset}}
+    <li *ngIf="data?.item?.tz_offset">
+      <span></span>
+      The timezone offset it {{data?.item?.tz_offset}}
     </li>
-    <li *ngIf="item.country">
-      <span></span> 
-      The city's country is {{item.country}}
+    <li *ngIf="data?.item?.country">
+      <span></span>
+      The city's country is {{data?.item?.country}}
     </li>
     <li>
-      Some of {{item.name}} local names are:
-      <ul *ngIf="item.local_name_hu">
-        <span></span> 
-        In Hungarian the city is called {{item.local_name_hu}}
+      Some of {{data?.item?.name}} local names are:
+      <ul *ngIf="data?.item?.local_name_hu">
+        <span></span>
+        In Hungarian the city is called {{data?.item?.local_name_hu}}
       </ul>
-      <ul *ngIf="item.local_name_ru">
-        <span></span> 
-        In Russian the city is called {{item.local_name_ru}}
+      <ul *ngIf="data?.item?.local_name_ru">
+        <span></span>
+        In Russian the city is called {{data?.item?.local_name_ru}}
       </ul>
-      <ul *ngIf="item.local_name_de">
-        <span></span> 
-        In German the city is called {{item.local_name_de}}
+      <ul *ngIf="data?.item?.local_name_de">
+        <span></span>
+        In German the city is called {{data?.item?.local_name_de}}
       </ul>
-      <ul *ngIf="item.local_name_fr">
-        <span></span> 
-        In French the city is called {{item.local_name_fr}}
+      <ul *ngIf="data?.item?.local_name_fr">
+        <span></span>
+        In French the city is called {{data?.item?.local_name_fr}}
       </ul>
     </li>
   </ul>

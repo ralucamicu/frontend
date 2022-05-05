@@ -21,7 +21,7 @@
   </div>
 </div>
 
-<div *ngIf="forecast">
+<div *ngIf="weatherData">
   <div class="container">
     <h3 class="text-left">Weather Details</h3>
     <table mat-table class="mat-elevation-z8" class="table table-hover table-bordered">
@@ -50,7 +50,7 @@
               <span>Night</span>
             </div>
           </td>
-          <td *ngFor="let weatherForecast of data.forecast?.daily">
+          <td *ngFor="let weatherForecast of weatherData?.forecast?.daily">
             <div class="day">
               <span>{{formatTemperature(weatherForecast?.temp.morn)}}°C</span>
               <span>{{formatTemperature(weatherForecast?.temp.day)}}°C</span>
@@ -69,7 +69,7 @@
               <span>Night</span>
             </div>
           </td>
-          <td *ngFor="let weatherForecast of data.forecast?.daily">
+          <td *ngFor="let weatherForecast of weatherData?.forecast?.daily">
             <div class="day">
               <span>{{formatTemperature(weatherForecast?.feels_like.morn)}}°C</span>
               <span>{{formatTemperature(weatherForecast?.feels_like.day)}}°C</span>
@@ -89,7 +89,7 @@
               <span></span>
             </div>
           </td>
-          <td *ngFor="let weatherForecast of data.forecast?.daily">
+          <td *ngFor="let weatherForecast of weatherData?.forecast?.daily">
             <div class="day">
               <span>{{formatTemperature(weatherForecast?.temp.max)}}°C</span>
             </div>
@@ -106,7 +106,7 @@
               <span></span>
             </div>
           </td>
-          <td *ngFor="let weatherForecast of data.forecast?.daily">
+          <td *ngFor="let weatherForecast of weatherData?.forecast?.daily">
             <div class="day">
               <span>{{formatTemperature(weatherForecast?.temp.min)}}°C</span>
             </div>
@@ -123,7 +123,7 @@
               <span></span>
             </div>
           </td>
-          <td *ngFor="let weatherForecast of data.forecast?.daily">
+          <td *ngFor="let weatherForecast of weatherData?.forecast?.daily">
             <div class="day">
               <span>{{formatTemperature(weatherForecast?.uvi)}}</span>
             </div>
