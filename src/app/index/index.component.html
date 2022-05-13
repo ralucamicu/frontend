@@ -1,0 +1,37 @@
+<div>
+
+  <header _ngcontent-kwn-c47 focusonnavigation area-label="header" id="homepage-header" class="docs-header-background">
+    <app-navbar></app-navbar>
+    <div _ngcontent-kwn-c47 class="docs-header-section">
+      <div _ngcontent-kwn-c47 class="docs-header-headline">
+        <h1 _ngcontent-kwn-c47 class="mat-h1">24h Weather</h1>
+        <h2 _ngcontent-kwn-c47>Welcome to your new local weather app</h2>
+      </div>
+    </div>
+    <div _ngcontent-kwn-c47 class="docs-header-start">
+      <a _ngcontent-kwn-c47 routerlink="/weather-dashboard"
+        class="mat-focus-indicator docs-button mat-raised-button mat-button-base" aria-disabled="false"
+        type="submit" (click)="openWeather()">
+        Check it out
+      </a>
+    </div>
+  </header>
+
+  <div _ngcontent-kwn-c47 class="docs-homepage-row docs-introduction">
+    <div _ngcontent-kwn-c47 class="docs-homepage-row-column">
+      <h2 _ngcontent-kwn-c47>I cant see it</h2>
+      <p _ngcontent-kwn-c47 *ngFor="let element of dataSource">{{element?.aboutUs}}</p>
+      <p _ngcontent-kwn-c47 *ngFor="let element of dataSource">{{element?.aboutWeather}}</p>
+    </div>
+    <div _ngcontent-kwn-c47 class="docs-homepage-row-column">
+      <h2 _ngcontent-kwn-c47>Lore ipsum</h2>
+      <p _ngcontent-kwn-c47 *ngFor="let element of dataSource">{{element.aboutUs}}</p>
+      <p _ngcontent-kwn-c47 *ngFor="let element of dataSource">{{element.aboutWeather}}</p>
+    </div>
+    <div _ngcontent-kwn-c47 class="docs-homepage-row-column">
+      <h2 _ngcontent-kwn-c47>Lore ipsum</h2>
+      <p _ngcontent-kwn-c47 *ngFor="let element of dataSource">{{element.aboutUs}}</p>
+      <p _ngcontent-kwn-c47 *ngFor="let element of dataSource">{{element.aboutWeather}}</p>
+    </div>
+  </div>
+</div>
