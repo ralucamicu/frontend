@@ -42,7 +42,8 @@
       </thead>
       <tbody>
         <tr scope="row">
-          <th>Temperature °C</th>
+          <th>Temperature °C
+          </th>
           <td>
             <div class="day">
               <span>Morning</span>
@@ -84,10 +85,6 @@
           <td>
             <div class="day">
               <span>MAX Temp</span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
             </div>
           </td>
           <td *ngFor="let weatherForecast of weatherData?.forecast?.daily">
@@ -101,10 +98,6 @@
           <td>
             <div class="day">
               <span>MIN Temp</span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
             </div>
           </td>
           <td *ngFor="let weatherForecast of weatherData?.forecast?.daily">
@@ -118,10 +111,6 @@
           <td>
             <div class="day">
               <span>UVI</span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
             </div>
           </td>
           <td *ngFor="let weatherForecast of weatherData?.forecast?.daily">

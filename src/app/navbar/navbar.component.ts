@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Clipboard } from '@angular/cdk/clipboard';
 
 @Component({
   selector: 'app-navbar',
@@ -6,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  clipboard : Clipboard;
 
-  constructor() { }
+  constructor(private navigator: Router) { }
 
   ngOnInit(): void {
   }
+  
+  address = "http://localhost:4200/home";
 
 }
