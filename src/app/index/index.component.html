@@ -10,8 +10,8 @@
     </div>
     <div _ngcontent-kwn-c47 class="docs-header-start">
       <a _ngcontent-kwn-c47 routerlink="/weather-dashboard"
-        class="mat-focus-indicator docs-button mat-raised-button mat-button-base" aria-disabled="false"
-        type="submit" (click)="openWeather()">
+        class="mat-focus-indicator docs-button mat-raised-button mat-button-base" aria-disabled="false" type="submit"
+        (click)="openWeather()">
         Check it out
       </a>
     </div>
@@ -19,19 +19,16 @@
 
   <div _ngcontent-kwn-c47 class="docs-homepage-row docs-introduction">
     <div _ngcontent-kwn-c47 class="docs-homepage-row-column">
-      <h2 _ngcontent-kwn-c47>I cant see it</h2>
-      <p _ngcontent-kwn-c47 *ngFor="let element of dataSource">{{element?.aboutUs}}</p>
-      <p _ngcontent-kwn-c47 *ngFor="let element of dataSource">{{element?.aboutWeather}}</p>
+      <h2 _ngcontent-kwn-c47>Here for 24h a day</h2>
+      <p _ngcontent-kwn-c47 *ngFor="let element of dataSource">{{element?.aboutTheApp}}</p>
     </div>
     <div _ngcontent-kwn-c47 class="docs-homepage-row-column">
-      <h2 _ngcontent-kwn-c47>Lore ipsum</h2>
-      <p _ngcontent-kwn-c47 *ngFor="let element of dataSource">{{element.aboutUs}}</p>
+      <h2 _ngcontent-kwn-c47>The more you know</h2>
       <p _ngcontent-kwn-c47 *ngFor="let element of dataSource">{{element.aboutWeather}}</p>
     </div>
     <div _ngcontent-kwn-c47 class="docs-homepage-row-column">
-      <h2 _ngcontent-kwn-c47>Lore ipsum</h2>
+      <h2 _ngcontent-kwn-c47>About us</h2>
       <p _ngcontent-kwn-c47 *ngFor="let element of dataSource">{{element.aboutUs}}</p>
-      <p _ngcontent-kwn-c47 *ngFor="let element of dataSource">{{element.aboutWeather}}</p>
     </div>
   </div>
 </div>

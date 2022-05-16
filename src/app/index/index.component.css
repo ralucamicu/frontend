@@ -179,6 +179,7 @@ a:-webkit-any-link {
     display: flex;
     flex-direction: column;
     width: 32%;
+    /* background-color: rgb(255, 255, 255); */
 }
 
 .docs-homepage-promo[_ngcontent-kwn-c47] h2[_ngcontent-kwn-c47] {
