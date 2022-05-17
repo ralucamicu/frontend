@@ -5,25 +5,25 @@
       <mat-icon>menu</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item>
-        <mat-icon>dialpad</mat-icon>
-        <span>Option nr1</span>
+      <button mat-menu-item (click)="redirectHome()">
+        <mat-icon>house</mat-icon>
+        <span>Home</span>
       </button>
-      <button mat-menu-item>
-        <mat-icon>voicemail</mat-icon>
-        <span>Option nr2</span>
+      <button mat-menu-item (click)="redirectToWeather()">
+        <mat-icon>sunny</mat-icon>
+        <span>Weather</span>
       </button>
       <button mat-menu-item>
         <mat-icon>notifications_off</mat-icon>
         <span>Option nr3</span>
       </button>
     </mat-menu>
-    <span>Weather API</span>
+      <span>24H Weather</span>
     <span class="example-spacer"></span>
     <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
       <mat-icon>favorite</mat-icon>
     </button>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" [cdkCopyToClipboard]="address">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" [cdkCopyToClipboard]="address" (click)="showMessage()">
       <mat-icon>share</mat-icon>
     </button>
   </mat-toolbar>
