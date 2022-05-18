@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Description } from '../models/description';
+import { Tile } from "../models/tile";
+
 
 const ELEMENT_DATA : Description [] = [
   {aboutUs: "We are a small team o developers devoted to keep the user inform and to give it the chance to inform itself starting from the smallest thing, like knowing the weather from all around the world.", 
@@ -26,6 +28,17 @@ const ELEMENT_DATA : Description [] = [
   styleUrls: ['./index.component.css']
 })
 export class IndexComponent implements OnInit {
+
+
+  tiles: Tile[] = [
+    {text: 'One', cols: 3, rows: 1, color: 'lightgrey'},
+    {text: 'Two', cols: 1, rows: 2, color: 'lightgrey'},
+    {text: 'Three', cols: 1, rows: 1, color: 'lightgrey'},
+    {text: 'Four', cols: 2, rows: 1, color: 'lightgrey'},
+  ];
+
+
+
   displayedInfo: string[] = ['aboutUs', 'aboutWeather'];
   dataSource = ELEMENT_DATA;
 
