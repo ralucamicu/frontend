@@ -13,6 +13,8 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatDialogModule} from '@angular/material/dialog';
 import {ClipboardModule} from '@angular/cdk/clipboard';
+import { MatDividerModule } from '@angular/material/divider';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -46,6 +48,8 @@ import { IndexComponent } from './index/index.component';
     MatMenuModule,
     MatDialogModule,
     ClipboardModule,
+    MatDividerModule,
+    MatGridListModule,
     NgHttpLoaderModule.forRoot()
   ],
   providers: [WeatherApiService],
