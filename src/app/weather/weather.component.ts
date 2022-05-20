@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import {DomSanitizer} from '@angular/platform-browser';
-import {MatIconRegistry} from '@angular/material/icon';
+import { DomSanitizer } from '@angular/platform-browser';
+import { MatIconRegistry } from '@angular/material/icon';
 
 import { WeatherApiService } from '../services/weather-api.service';
 import { WeatherDialogComponent } from './dialog/weather-dialog/weather-dialog.component';
@@ -30,14 +30,7 @@ export class WeatherComponent implements OnInit {
 
   ngOnInit(): void {                    //runs once at the initialization of a component, executing any logic that i specify needs to run before the component is ready to use.
     this.weatherSearchForm = this.formBuilder.group({
-      location: ['', Validators.required],
-      latitude: [''],
-      longitude: [''],
-      lat: [''],
-      long: [''],
-      name: [''],
-      local_names: [''],
-      country: ['']
+      location: ['', Validators.required]
 
     });
 

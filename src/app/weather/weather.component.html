@@ -10,7 +10,7 @@
             placeholder="Please input a Location" formControlName="location" required />
         </mat-form-field>
 
-        <p *ngIf="!forecast">{{errMsg}}</p>
+        <p *ngIf="!(weatherData?.city && weatherData?.forecast)">{{errMsg}}</p>
         <div class="example-button-row">
           <button mat-raised-button color="primary" type="submit" (click)="sendToApi(weatherSearchForm.value)">
             Show forecast
@@ -21,7 +21,7 @@
   </div>
 </div>
 
-<div *ngIf="weatherData">
+<div *ngIf="weatherData?.city && weatherData?.forecast">
   <div class="container">
     <h3 class="text-left">Weather Details</h3>
     <table mat-table class="mat-elevation-z8" class="table table-hover table-bordered">
