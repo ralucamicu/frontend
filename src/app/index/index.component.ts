@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 import { Description } from '../models/description';
 import { Tile } from "../models/tile";
+import { WeatherApiService } from "../services/weather-api.service";
 
 
 const ELEMENT_DATA: Description[] = [
